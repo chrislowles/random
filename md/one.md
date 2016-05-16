@@ -17,7 +17,6 @@ http://cdn-jpg.si.com/sites/default/files/styles/inline_gallery_desktop/public/i
 http://www.e-network.online/wp-content/uploads/2015/11/hot-girl-distraction-prank-feat.jpg
 http://cdn.collider.com/wp-content/uploads/2015/10/scouts-guide-zombie-apocalypse-halston-sage.jpg
 https://pbs.twimg.com/media/CZScyQKXEAAHslh.jpg:large
-file:///C:/Users/Chris/Google%20Drive/Personal/EVEN%20FURTHER/Images/CFk33SWVEAAjDd6.png
 https://49.media.tumblr.com/bbc35753b9acd68c236aaf3dd1127034/tumblr_n7k1ozHbI21qbwy5mo1_500.gif
 https://cbsnewsite.files.wordpress.com/2014/06/iggysbutt.jpg
 http://images.askmen.com/news/entertainment/best-straight-outta-compton-memes_1439318026.jpg
