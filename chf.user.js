@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         CHF USERSCRIPTS: 1ST EDITION
 // @version      1.0
-// @description  MAKES EDITS TO ENHANCE CERTAIN PARTS OF THE INTERNET (MADE FOR PERSONAL USE) :)
+// @description  MAKES EDITS TO ENHANCE CERTAIN PARTS OF THE INTERNET (MADE FOR PERSONAL USE, but you can use it too) :)
 // @author       Chris Lowles
 // @match        *://*/*
 // @grant        none
@@ -10,7 +10,7 @@
 /* jshint -W097 */
 'use strict';
 
-var _app, _app = {
+var _chf, _chf = {
 	queryString: function(field, prop) {
 		var href = prop;
 		var reg = new RegExp('[?&]' + field + '=([^&#]*)', 'i');
@@ -18,7 +18,6 @@ var _app, _app = {
 		return string ? string[1] : undefined;
 	},
 	init: function() {
-        document.getElementsByName("body").class
 		if (window.location.host === 'www.youtube.com') {
 			setInterval(function() {
 				if (document.querySelector('#yt-masthead .yt-masthead-logo-container #logo-container[href="/"]')) {
@@ -29,10 +28,10 @@ var _app, _app = {
 				}
 			}, 100);
 		}
-		if (window.location.host === 'www.bing.com') {
-			if (window.location.pathname === '/search') {
-				if (queryString('q', window.location.href)) {
-					location.href = '//www.google.com/search?q=' + queryString('q', window.location.href);
+		if (window.location.host === "www.bing.com") {
+			if (window.location.pathname === "/search") {
+				if (_chf.queryString("q", window.location.href)) {
+					window.open("//www.google.com/search?q=" + _chf.queryString("q", window.location.href), "_top");
 				}
 			}
 			if (window.location.pathname === '/') {
@@ -42,4 +41,4 @@ var _app, _app = {
 	}
 };
 
-_app.init();
+_chf.init();
