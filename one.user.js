@@ -5,7 +5,7 @@
 // @author       Chris Lowles
 // @match        *://*/*
 // @grant        none
-// @updateURL    https://chrishazfun.github.io/stuff/chf.user.js
+// @updateURL    https://chrishazfun.github.io/stuff/one.user.js
 // ==/UserScript==
 /* jshint -W097 */
 'use strict';
