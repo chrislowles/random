@@ -18,6 +18,11 @@ var _chf, _chf = {
 		return string ? string[1] : undefined;
 	},
 	init: function() {
+		if (window.location.href === "chrome-extension://pejkokffkapolfffcgbmdmhdelanoaih/index.html") {
+			setInterval(function() {
+				document.querySelector('.single-photo__footer, single-photo__overlay, .single-photo__gradient-overlay, .single-photo__header').setAttribute('style', 'display:none');
+			}, 100);
+		}
 		if (window.location.host === 'www.youtube.com') {
 			setInterval(function() {
 				if (document.querySelector('#yt-masthead .yt-masthead-logo-container #logo-container[href="/"]')) {
