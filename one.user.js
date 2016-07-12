@@ -12,10 +12,8 @@
 
 var _chf, _chf = {
 	queryString: function(field, prop) {
-		var href = prop;
-		var reg = new RegExp('[?&]' + field + '=([^&#]*)', 'i');
-		var string = reg.exec(href);
-		return string ? string[1] : undefined;
+		var string = new RegExp("[?&]" + field + "=([^&#]*)", "i").exec(prop);
+		return string ? string[1] : (undefined ? undefined : null);
 	},
 	init: function() {
 		if (window.location.href === "chrome-extension://pejkokffkapolfffcgbmdmhdelanoaih/index.html") {

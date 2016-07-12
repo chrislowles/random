@@ -1,9 +1,7 @@
 var qs_json, qs_json = {
     queryString: function(field, prop) {
-        var thing = prop;
-        var reg = new RegExp("[?&]" + field + "=([^&#]*)", "i");
-        var string = reg.exec(thing);
-        return string ? string[1] : undefined;
+		var string = new RegExp("[?&]" + field + "=([^&#]*)", "i").exec(prop);
+		return string ? string[1] : (undefined ? undefined : null);
     },
     json: {
         toqs: function(param1) {
