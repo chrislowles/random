@@ -16,25 +16,20 @@ var _chf, _chf = {
 		return string ? string[1] : (undefined ? undefined : null);
 	},
 	init: function() {
-		if (window.location.href === "chrome-extension://pejkokffkapolfffcgbmdmhdelanoaih/index.html") {
-			setInterval(function() {
-				document.querySelector('.single-photo__footer, single-photo__overlay, .single-photo__gradient-overlay, .single-photo__header').setAttribute('style', 'display:none');
-			}, 100);
-		}
 		if (window.location.host === 'www.youtube.com') {
 			setInterval(function() {
 				if (document.querySelector('#yt-masthead .yt-masthead-logo-container #logo-container[href="/"]')) {
-					document.querySelector('#yt-masthead .yt-masthead-logo-container #logo-container[href="/"]').setAttribute('href', '/feed/subscriptions');
+					document.querySelector('#yt-masthead .yt-masthead-logo-container #logo-container[href="/"]').setAttribute('href', '/feed/subscriptions?flow=2');
 				}
 				if (document.querySelector('#yt-masthead div #yt-masthead-logo-fragment #logo-container map area[href="/"]')) {
-					document.querySelector('#yt-masthead div #yt-masthead-logo-fragment #logo-container map area[href="/"]').setAttribute('href', '/feed/subscriptions');
+					document.querySelector('#yt-masthead div #yt-masthead-logo-fragment #logo-container map area[href="/"]').setAttribute('href', '/feed/subscriptions?flow=2');
 				}
 			}, 100);
 		}
 		if (window.location.host === "www.bing.com") {
 			if (window.location.pathname === "/search") {
 				if (_chf.queryString("q", window.location.href)) {
-					window.open("//www.google.com/search?q=" + _chf.queryString("q", window.location.href), "_top");
+					window.location.replace("//www.google.com/search?q=" + _chf.queryString("q", window.location.href), "_top");
 				}
 			}
 			if (window.location.pathname === '/') {
