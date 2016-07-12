@@ -4,7 +4,7 @@ var qs_json, qs_json = {
 		return string ? string[1] : (undefined ? undefined : null);
     },
     json: {
-        toqs: function(param1) {
+        toQS: function(param1) {
             return '?' + Object.keys(param1).map(function(key) {
                 return encodeURIComponent(key) + '=' + encodeURIComponent(param1[key]);
             }).join('&');
