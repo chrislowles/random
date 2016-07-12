@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         CHF USERSCRIPTS: 1ST EDITION
 // @version      1.0
-// @description  MAKES EDITS TO ENHANCE CERTAIN PARTS OF THE INTERNET (MADE FOR PERSONAL USE, but you can use it too) :)
+// @description  Makes edits to enhance certain parts of the Internet (MADE FOR PERSONAL USE, but you can use it too :))
 // @author       Chris Lowles
 // @match        *://*/*
 // @grant        none
