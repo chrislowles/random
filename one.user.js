@@ -26,16 +26,6 @@ var _chf, _chf = {
 				}
 			}, 100);
 		}
-		if (window.location.host === "www.bing.com") {
-			if (window.location.pathname === "/search") {
-				if (_chf.queryString("q", window.location.href)) {
-					window.location.replace("//www.google.com/search?q=" + _chf.queryString("q", window.location.href), "_top");
-				}
-			}
-			if (window.location.pathname === '/') {
-				location.href = '//www.google.com/';
-			}
-		}
 	}
 };
 
