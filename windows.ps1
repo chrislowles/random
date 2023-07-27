@@ -47,6 +47,20 @@
 # Write-Output -Message "Importing AppX module for function"
 # Import-Module -Name Appx -UseWindowsPowerShell
 
+Write-Output "Removing OneDrive"
+Invoke-WebRequest -Uri "https://gist.githubusercontent.com/AllenEllis/884681dd08abb2470f55a74bbc12f008/raw/0c494563220283a607543af9d55a5309983fb18d/Remove%2520OneDrive%2520(PowerShell).ps1" -OutFile "remove-onedrive.ps1"
+Start-Process remove-onedrive.ps1
+
+Write-Output "Turning hibernation off"
+sudo powercfg /hibernate off
+
+Write-Output -Message "Finally we're gonna disable some optional features"
+sudo dism /online /disable-feature /featurename:Internet-Explorer-Optional-amd64 /remove /norestart /warningaction
+sudo dism /online /disable-feature /featurename:WindowsMediaPlayer /remove /norestart /warningaction
+
+Write-Output "Disabling Xbox Overlay prompt to avoid issues with opening gaming apps on Windows"
+cmd.exe /c 'REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\GameDVR" /v AppCaptureEnabled /t REG_DWORD /d 0 /f'
+
 Write-Output -Message "Removing crud..."
 (
 	"Microsoft.BingWeather*",
@@ -115,10 +129,6 @@ Write-Output -Message "Removing crud..."
 ) | ForEach-Object {
 	Get-AppxPackage $_ | Remove-AppxPackage
 }
-
-Write-Output "Removing OneDrive"
-Invoke-WebRequest -Uri "https://gist.githubusercontent.com/AllenEllis/884681dd08abb2470f55a74bbc12f008/raw/0c494563220283a607543af9d55a5309983fb18d/Remove%2520OneDrive%2520(PowerShell).ps1" -OutFile "remove-onedrive.ps1"
-Start-Process remove-onedrive.ps1
 
 # winget {
 	if (!(Test-Path "$HOME\AppData\Local\Microsoft\WindowsApps\winget.exe")) {
@@ -205,15 +215,5 @@ Start-Process remove-onedrive.ps1
 # reg import "C:\Users\$env:username\DolphinExplore.reg"
 # reg import "C:\Users\$env:username\Scoop\apps\prismlauncher\current\install-associations.reg"
 # reg import "C:\Users\$env:username\DolphinExplore-Revert.reg"
-
-Write-Output "Turning hibernation off"
-sudo powercfg /hibernate off
-
-Write-Output -Message "Finally we're gonna disable some optional features"
-sudo dism /online /disable-feature /featurename:Internet-Explorer-Optional-amd64 /remove /norestart /warningaction
-sudo dism /online /disable-feature /featurename:WindowsMediaPlayer /remove /norestart /warningaction
-
-Write-Output "Disabling Xbox Overlay prompt to avoid issues with opening gaming apps on Windows"
-cmd.exe /c 'REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\GameDVR" /v AppCaptureEnabled /t REG_DWORD /d 0 /f'
 
 Write-Output "Done! You should probably reboot before doing anything"
