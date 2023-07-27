@@ -9,6 +9,16 @@ sudo apx init
 dothething () {
     # timeshift for backups
     apt install timeshift
+    # pkgs for certs in plex
+    apt install apt-transport-https ca-certificates wget
+    # get the latest plex deb download URL
+    regex='"build":"linux-x86_64","distro":"debian","url":"(https:\/\/downloads\.plex\.tv\/plex-media-server-new\/[^/]*\/debian\/[^/]*_amd64\.deb)",' && response=$(curl -s https://plex.tv/api/downloads/5.json) && [[ $response =~ $regex ]] && downloadURL="${BASH_REMATCH[1]}"
+    # download latest plex version
+    wget -O ./plexmediaserver.deb $downloadURL
+    # install plex media server
+    sudo dpkg -i ./plexmediaserver.deb
+    # run plexmediaserver service on system boot
+    sudo systemctl enable plexmediaserver.service
     # flatpak and gnome intergration if we haven't already
     apt install flatpak gnome-software-plugin-flatpak
     # flathub repo for flatpak
