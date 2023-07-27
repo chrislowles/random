@@ -120,8 +120,6 @@ Write-Output "Removing OneDrive"
 Invoke-WebRequest -Uri "https://gist.githubusercontent.com/AllenEllis/884681dd08abb2470f55a74bbc12f008/raw/0c494563220283a607543af9d55a5309983fb18d/Remove%2520OneDrive%2520(PowerShell).ps1" -OutFile "remove-onedrive.ps1"
 Start-Process remove-onedrive.ps1
 
-# https://sourceforge.net/projects/equalizerapo/files/1.3/EqualizerAPO64-1.3.exe/download
-
 # winget {
 	if (!(Test-Path "$HOME\AppData\Local\Microsoft\WindowsApps\winget.exe")) {
 		Write-Output "Getting Winget"
@@ -194,6 +192,7 @@ Start-Process remove-onedrive.ps1
 		"https://aka.ms/XboxInstaller",
 		"https://openiv.com/WebIV/guest.php?get=1"
 		# "https://runtime.fivem.net/client/FiveM.exe"
+		# https://sourceforge.net/projects/equalizerapo/files/1.3/EqualizerAPO64-1.3.exe/download
 	) | ForEach-Object {
 		Invoke-WebRequest -UseBasicParsing -Uri $_ -OutFile "pkg.exe"
 		Start-Process pkg.exe
