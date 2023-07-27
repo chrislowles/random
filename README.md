@@ -13,5 +13,5 @@ bash linux/fedora.sh
 
 ## Windows Script (PowerShell 7.x, Absolutely triple make sure Windows is updated)
 ```powershell
-Invoke-WebRequest -Uri https://github.com/chrishazfun/random/raw/main/windows.ps1 | Invoke-Expression
+Invoke-WebRequest -Uri https://raw.githubusercontent.com/chrishazfun/random/master/windows.ps1 | Invoke-Expression
 ```
