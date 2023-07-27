@@ -11,7 +11,4 @@ bash linux/lmde.sh
 bash linux/fedora.sh
 ```
 
-## Windows Script (PowerShell 7.x, Absolutely triple make sure Windows is updated)
-```powershell
-Invoke-WebRequest -UseBasicParsing -Uri "https://raw.githubusercontent.com/chrishazfun/random/master/windows.ps1" | Invoke-Expression
-```
+<sup>I also provide scripts for Windows [here](https://github.com/chrishazfun/random/blob/master/windows.md) (Sectioned, PowerShell 7.x, absolutely triple make sure 100% of Windows is updated)</sup>
