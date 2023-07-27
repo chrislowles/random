@@ -11,7 +11,7 @@ bash linux/lmde.sh
 bash linux/fedora.sh
 ```
 
-## Windows Script (PowerShell 7.x)
+## Windows Script (PowerShell 7.x, Absolutely triple make sure Windows is updated)
 ```powershell
-iwr -useb https://github.com/chrishazfun/random/raw/main/windows.ps1 | iex
+Invoke-WebRequest -Uri https://github.com/chrishazfun/random/raw/main/windows.ps1 | Invoke-Expression
 ```
