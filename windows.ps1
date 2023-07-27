@@ -120,9 +120,6 @@ Write-Output "Removing OneDrive"
 Invoke-WebRequest -Uri "https://gist.githubusercontent.com/AllenEllis/884681dd08abb2470f55a74bbc12f008/raw/0c494563220283a607543af9d55a5309983fb18d/Remove%2520OneDrive%2520(PowerShell).ps1" -OutFile "remove-onedrive.ps1"
 Start-Process remove-onedrive.ps1
 
-Write-Output "Disabling Xbox Overlay prompt to avoid issues with opening gaming apps on Windows"
-cmd.exe /c 'REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\GameDVR" /v AppCaptureEnabled /t REG_DWORD /d 0 /f'
-
 # https://sourceforge.net/projects/equalizerapo/files/1.3/EqualizerAPO64-1.3.exe/download
 
 # winget {
@@ -168,8 +165,6 @@ cmd.exe /c 'REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\GameDVR" /v 
 		"BlenderFoundation.Blender",
 		"TechPowerUp.NVCleanstall",
 		"KDE.Kdenlive",
-		# "games/citra",
-		# "extras/cpu-z",
 		"DolphinEmulator.Dolphin",
 		"stenzek.DuckStation",
 		"DupeGuru.DupeGuru",
@@ -179,17 +174,16 @@ cmd.exe /c 'REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\GameDVR" /v 
 		"ImageMagick.ImageMagick",
 		"OBSProject.OBSStudio",
 		# "games/pcsx2",
+		# "games/rpcs3",
 		"MusicBrainz.Picard",
 		"Microsoft.PowerToys",
 		"PPSSPPTeam.PPSSPP",
 		"PrismLauncher.PrismLauncher",
 		"qBittorrent.qBittorrent",
-		# "extras/rainmeter",
-		# "games/rpcs3",
 		"Rufus.Rufus",
 		"SteamGridDB.RomManager"
 	) | ForEach-Object {
-		winget install -e --id gerardog.gsudo --override --scope "machine"
+		winget install -e --id $_ --override --scope "machine"
 	}
 # }
 
@@ -198,10 +192,10 @@ cmd.exe /c 'REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\GameDVR" /v 
 	(
 		"https://aka.ms/vs/17/release/vc_redist.x86.exe",
 		"https://aka.ms/XboxInstaller",
-		"https://openiv.com/WebIV/guest.php?get=1",
+		"https://openiv.com/WebIV/guest.php?get=1"
 		# "https://runtime.fivem.net/client/FiveM.exe"
 	) | ForEach-Object {
-		Invoke-WebRequest -Uri $_ -OutFile "pkg.exe"
+		Invoke-WebRequest -UseBasicParsing -Uri $_ -OutFile "pkg.exe"
 		Start-Process pkg.exe
 	}
 # }
@@ -219,5 +213,8 @@ sudo powercfg /hibernate off
 Write-Output -Message "Finally we're gonna disable some optional features"
 sudo dism /online /disable-feature /featurename:Internet-Explorer-Optional-amd64 /remove /norestart /warningaction
 sudo dism /online /disable-feature /featurename:WindowsMediaPlayer /remove /norestart /warningaction
+
+Write-Output "Disabling Xbox Overlay prompt to avoid issues with opening gaming apps on Windows"
+cmd.exe /c 'REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\GameDVR" /v AppCaptureEnabled /t REG_DWORD /d 0 /f'
 
 Write-Output "Done! You should probably reboot before doing anything"
