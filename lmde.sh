@@ -5,23 +5,38 @@ if [[ $EUID -ne 0 ]]; then
 	exit 1
 fi
 
+echo "installing some obvious native pkgs"
+sleep 1
+nativeInstall() {
+	apt install git
+}
+if ! nativeInstall; then
+	echo "failed to install some native pkgs"
+	exit 1
+fi
+
 echo "removing certain default apps"
 sleep 1
 removeDefaults() {
-	apt -yy remove rhythmbox hexchat thunderbird
+	apt remove hexchat thunderbird hypnotix rhythmbox
 }
 if ! removeDefaults; then
 	echo "failed to remove certain default apps"
 	exit 1
 fi
 
-#echo "installing various recommended native packages"
+#echo "installing recommended qemu virt manager combo"
 #sleep 1
-#nativeInstall() {
-#	apt install -yy yt-dlp qemu-kvm libvirt-clients libvirt-daemon-system virt-manager apt-transport-https ca-certificates wget
+#qemukvmInstall() {
+#	apt install virt-manager edtables dnsmasq qemu-kvm qemu-system-x86 seabios ovmf libvirt-daemon-system libvirt-daemon-system-systemd libvirt-daemon-driver-qemu libvirt-daemon-config-network libvirt-daemon libvirt-clients
+#	systemctl enable libvirtd
+#	systemctl start libvirtd
+#	usermod -a -G operator $USER
+#	usermod -a -G kvm $USER
+#	usermod -a -G libvirtd $USER
 #}
-#if ! nativeInstall; then
-#	echo "failed to install various recommended native packages"
+#if ! qemukvmInstall; then
+#	echo "failed to install recommended qemu virt manager combo"
 #	exit 1
 #fi
 
@@ -51,21 +66,25 @@ flatpakInstall() {
 	#flatpak build-bundle .repo shutter-encoder.flatpak org.paulpacifico.ShutterEncoder
 	#flatpak install shutter-encoder.flatpak
 
-	echo "flatpak essentials ..3 ..2 ..1"; sleep 3
+	echo "essentials"; sleep 3
 	flatpak install com.github.tchx84.Flatseal me.timschneeberger.jdsp4linux
 
-	echo "gaming stuff ..3 ..2 ..1"; sleep 3
-	flatpak install io.itch.itch com.heroicgameslauncher.hgl io.mrarm.mcpelauncher io.github.mandruis7.xbox-cloud-gaming-electron com.valvesoftware.Steam com.steamgriddb.steam-rom-manager net.rpcs3.RPCS3 org.citra_emu.citra net.pcsx2.PCSX2 org.DolphinEmu.dolphin-emu org.ppsspp.PPSSPP org.godotengine.Godot
+	echo "ms stuff"; sleep 3
+	flatpak install com.microsoft.Edge com.visualstudio.code com.github.IsmaelMartinez.teams_for_linux
 
-	echo "production ..3 ..2 ..1"; sleep 3
-	flatpak install org.ardour.Ardour com.obsproject.Studio org.kde.kdenlive org.gimp.GIMP org.blender.Blender org.tenacityaudio.Tenacity fr.handbrake.ghb
+	echo "gaming"; sleep 3
+	flatpak install uk.co.powdertoy.tpt io.itch.itch com.heroicgameslauncher.hgl
+	echo "steam specifically"; sleep 2
+	flatpak install com.valvesoftware.Steam com.steamgriddb.steam-rom-manager
+	echo "emulators"; sleep 2
+	flatpak install net.rpcs3.RPCS3 org.citra_emu.citra net.pcsx2.PCSX2 org.DolphinEmu.dolphin-emu org.ppsspp.PPSSPP
 
-	echo "odds and ends (chunked) ..3 ..2 ..1"; sleep 3
-	flatpak install com.feaneron.Boatswain
-	flatpak install org.bleachbit.BleachBit io.missioncenter.MissionCenter
-	flatpak install org.qbittorrent.qBittorrent org.atheme.audacious org.musicbrainz.Picard com.vscodium.codium io.github.shiftey.Desktop org.jellyfin.JellyfinServer
-	flatpak install com.sindresorhus.Caprine com.discordapp.Discord
-	flatpak install org.upscayl.Upscayl org.gnome.SimpleScan
+	echo "production"; sleep 3
+	flatpak install com.obsproject.Studio org.gimp.GIMP org.tenacityaudio.Tenacity org.godotengine.Godot org.kde.kdenlive
+	flatpak install org.ardour.Ardour org.blender.Blender fr.handbrake.ghb
+
+	echo "odds and ends"; sleep 3
+	flatpak install org.bleachbit.BleachBit org.musicbrainz.Picard org.jellyfin.JellyfinServer com.feaneron.Boatswain org.atheme.audacious org.qbittorrent.qBittorrent com.sindresorhus.Caprine com.discordapp.Discord io.github.shiftey.Desktop org.upscayl.Upscayl
 
 }
 if ! flatpakInstall; then
