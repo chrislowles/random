@@ -72,55 +72,61 @@
 ## Winget Pkgs (of which you can get [here](https://aka.ms/getwinget))
 ```powershell
 (
-	"gerardog.gsudo",
 	"yt-dlp.yt-dlp",
-	"Xanashi.Icaros",
-	"JernejSimoncic.Wget",
-	"7zip.7zip",
-	"Oracle.VirtualBox",
-	"Python.Python.3.8",
-	"Microsoft.WindowsTerminal",
-	"SublimeHQ.SublimeText.4",
-	"KDE.Dolphin",
-	"Mozilla.Firefox",
-	"Ytmdesktop.Ytmdesktop",
-	"Valve.Steam",
-	"GOG.Galaxy",
-	"ItchIo.Itch",
-	"EpicGames.EpicGamesLauncher",
-	"NexusMods.Vortex",
-	"Logitech.LogiBolt",
-	"Zoom.Zoom",
-	"PrivateInternetAccess.PrivateInternetAccess",
-	"Oracle.JavaRuntimeEnvironment",
-	"YuzuEmu.Yuzu.Mainline",
-	"xemu-project.xemu",
-	"VideoLAN.VLC",
+	"HeroicGamesLauncher.HeroicGamesLauncher",
 	"Upscayl.Upscayl",
-	"Discord.Discord",
-	"Audacious.MediaPlayer",
+	"NexusMods.Vortex",
 	"Audacity.Audacity",
 	"BleachBit.BleachBit",
-	"BlenderFoundation.Blender",
-	"TechPowerUp.NVCleanstall",
-	"KDE.Kdenlive",
+	"Discord.Discord",
 	"DolphinEmulator.Dolphin",
-	"stenzek.DuckStation",
-	"DupeGuru.DupeGuru",
-	"Gyan.FFmpeg.Shared",
+	"GIMP.GIMP",
+	"GNU.Nano",
+	"GitHub.GitHubDesktop",
+	"Git.Git",
 	"HandBrake.HandBrake",
-	"HomeBank.HomeBank",
 	"ImageMagick.ImageMagick",
-	"OBSProject.OBSStudio",
-	# "games/pcsx2",
-	# "games/rpcs3",
+	"Logitech.LogiBolt",
+	"Logitech.UnifyingSoftware",
 	"MusicBrainz.Picard",
-	"Microsoft.PowerToys",
+	"Mozilla.Firefox",
+	"OBSProject.OBSStudio",
 	"PPSSPPTeam.PPSSPP",
 	"PrismLauncher.PrismLauncher",
-	"qBittorrent.qBittorrent",
 	"Rufus.Rufus",
-	"SteamGridDB.RomManager"
+	"Spotify.Spotify",
+	"Valve.Steam",
+	"SublimeHQ.SublimeText.4",
+	"ThePowderToy.ThePowderToy",
+	"VideoLAN.VLC",
+	"YuzuEmu.Yuzu.Mainline",
+	"Zoom.Zoom",
+	"Ytmdesktop.Ytmdesktop",
+	"Caprine.Caprine",
+	"SteamGridDB.RomManager",
+	"DupeGuru.DupeGuru",
+	"ItchIo.Itch",
+	"KDE.Kdenlive",
+	"qBittorrent.qBittorrent",
+	"Cloudflare.Warp",
+	"7zip.7zip",
+	"Microsoft.PowerToys",
+	"PrivateInternetAccess.PrivateInternetAccess",
+	"TheDocumentFoundation.LibreOffice",
+	"gerardog.gsudo",
+	"Oracle.JavaRuntimeEnvironment",
+	"Python.Launcher",
+	"TechPowerUp.NVCleanstall",
+	"Cyotek.WebCopy",
+	"Oracle.VirtualBox",
+	"Microsoft.VCRedist.2013.x64",
+	"Microsoft.VCRedist.2010.x64",
+	"Microsoft.VCRedist.2015+.x86",
+	"Microsoft.VCRedist.2005.x86",
+	"Microsoft.VCRedist.2015+.x64",
+	"Microsoft.VCRedist.2013.x86",
+	"Microsoft.VCRedist.2010.x86",
+	"Microsoft.DotNet.DesktopRuntime.6"
 ) | ForEach-Object {
 	winget install $_
 }
@@ -132,8 +138,8 @@
 	"https://aka.ms/vs/17/release/vc_redist.x86.exe",
 	"https://aka.ms/XboxInstaller",
 	"https://openiv.com/WebIV/guest.php?get=1"
-	# "https://runtime.fivem.net/client/FiveM.exe"
-	# "https://sourceforge.net/projects/equalizerapo/files/1.3/EqualizerAPO64-1.3.exe/download"
+	#"https://runtime.fivem.net/client/FiveM.exe"
+	"https://sourceforge.net/projects/equalizerapo/files/1.3/EqualizerAPO64-1.3.exe/download"
 ) | ForEach-Object {
 	Invoke-WebRequest -UseBasicParsing -Uri $_ -OutFile "pkg.exe"
 	Start-Process pkg.exe
@@ -156,7 +162,7 @@ sudo dism /online /disable-feature /featurename:Internet-Explorer-Optional-amd64
 sudo dism /online /disable-feature /featurename:WindowsMediaPlayer /remove /norestart /warningaction
 ```
 
-# Disabling Xbox Overlay prompt to avoid issues with opening games
+# Disabling Xbox Overlay prompt to avoid issues with opening games (Optional)
 ```powershell
 cmd.exe /c 'REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\GameDVR" /v AppCaptureEnabled /t REG_DWORD /d 0 /f'
 ```
