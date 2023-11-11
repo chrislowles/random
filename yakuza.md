@@ -1,0 +1,8 @@
+* Yakuza 0 (takes place in 1988)
+* Yakuza Kiwami (remake of Yakuza on PS2, takes place in 2005)
+* Yakuza Kiwami 2 (remake of Yakuza 2 on PS2, takes place in 2006)
+* Yakuza 3 (takes place in 2009)
+* Yakuza 4 (takes place in 2010)
+* Yakuza 5 (takes place in 2012)
+* Yakuza 6: The Song of Life (takes place in 2016)
+* Yakuza: Like A Dragon (takes place in 2019)
