@@ -16,4 +16,4 @@ git clone https://github.com/chrishazfun/random
 bash random/script-name.sh
 ```
 
-<sup>I also provide scripts for Windows [here](https://github.com/chrishazfun/random/blob/master/windows.md) (Sectioned, PowerShell 7.x, absolutely triple make sure 100% of Windows is updated)</sup>
+<sup>I also provide a how-to for my personal Windows setup [here](https://github.com/chrishazfun/random/blob/master/windows.md) (Sectioned, PowerShell 7.x, absolutely triple make sure 100% of Windows is updated)</sup>
