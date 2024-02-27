@@ -8,10 +8,10 @@ bash <(curl -s https://github.com/chrishazfun/random/raw/master/script-name.sh)
 ```
 
 ## LMDE.sh
-<sup>Find some details on LMDE.sh at https://github.com/chrishazfun/random/blob/master/LMDE.md</sup>
+<sup>Details on LMDE.sh at https://github.com/chrishazfun/random/blob/master/LMDE.md</sup>
 
 ```bash
-# if you can clone repo
+# if you have git (you should, really)
 git clone https://github.com/chrishazfun/random
 bash random/script-name.sh
 ```
