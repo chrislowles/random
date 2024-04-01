@@ -5,6 +5,18 @@ if [[ $EUID -ne 0 ]]; then
 	exit 1
 fi
 
+echo "Adding contrib repo"
+sleep 1
+addContrib() {
+	sed -r -i 's/^deb(.*)$/deb\1 contrib/g' /etc/apt/sources.list
+	apt update
+	apt upgrade
+}
+if ! addContrib; then
+	echo "Failed to add contrib repo."
+	exit 1
+fi
+
 echo "Removing certain default apps."
 sleep 1
 removeDefaults() {
@@ -33,10 +45,10 @@ sleep 1
 nativeInstall() {
 	apt install sublime-text kdocker dupeguru
 	# cloudflare warp native install
-	#curl -fsSL https://pkg.cloudflareclient.com/pubkey.gpg | sudo gpg --yes --dearmor --output /usr/share/keyrings/cloudflare-warp-archive-keyring.gpg
-	#echo "deb [signed-by=/usr/share/keyrings/cloudflare-warp-archive-keyring.gpg] https://pkg.cloudflareclient.com/ $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/cloudflare-client.list
-	#apt-get update
-	#apt-get install cloudflare-warp
+	curl -fsSL https://pkg.cloudflareclient.com/pubkey.gpg | sudo gpg --yes --dearmor --output /usr/share/keyrings/cloudflare-warp-archive-keyring.gpg
+	echo "deb [signed-by=/usr/share/keyrings/cloudflare-warp-archive-keyring.gpg] https://pkg.cloudflareclient.com/ $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/cloudflare-client.list
+	apt-get update
+	apt-get install cloudflare-warp
 }
 if ! nativeInstall; then
 	echo "Failed to install preferred native pkgs."
@@ -47,7 +59,7 @@ echo "Installing preferred flatpaks."
 sleep 1
 flatpakInstall() {
 	flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-	flatpak install com.spotify.Client me.timschneeberger.jdsp4linux com.github.tchx84.Flatseal org.godotengine.Godot org.ardour.Ardour org.blender.Blender fr.handbrake.ghb org.jellyfin.JellyfinServer com.feaneron.Boatswain org.atheme.audacious com.sindresorhus.Caprine com.discordapp.Discord org.gimp.GIMP com.obsproject.Studio io.github.pwr_solaar.solaar io.freetubeapp.FreeTube org.kde.kdenlive org.qbittorrent.qBittorrent org.musicbrainz.Picard us.zoom.Zoom io.github.shiftey.Desktop org.upscayl.Upscayl org.audacityteam.Audacity org.bleachbit.BleachBit me.hyliu.fluentreader io.mpv.Mpv com.belmoussaoui.snowglobe io.github.peazip.PeaZip io.github.pwr_solaar.solaar us.zoom.Zoom org.gnome.Boxes org.kde.neochat org.kde.tokodon io.itch.itch com.valvesoftware.Steam com.steamgriddb.steam-rom-manager uk.co.powdertoy.tpt com.heroicgameslauncher.hgl net.rpcs3.RPCS3 org.citra_emu.citra org.DolphinEmu.dolphin-emu org.ppsspp.PPSSPP net.pcsx2.PCSX2 org.yuzu_emu.yuzu com.mojang.Minecraft
+	flatpak install com.spotify.Client me.timschneeberger.jdsp4linux com.github.tchx84.Flatseal org.godotengine.Godot org.ardour.Ardour org.blender.Blender fr.handbrake.ghb org.jellyfin.JellyfinServer com.feaneron.Boatswain org.atheme.audacious com.discordapp.Discord org.gimp.GIMP com.obsproject.Studio io.github.pwr_solaar.solaar io.freetubeapp.FreeTube org.kde.kdenlive org.qbittorrent.qBittorrent org.musicbrainz.Picard us.zoom.Zoom io.github.shiftey.Desktop org.upscayl.Upscayl org.audacityteam.Audacity org.bleachbit.BleachBit io.mpv.Mpv io.github.peazip.PeaZip org.gnome.Boxes org.kde.neochat io.itch.itch com.valvesoftware.Steam com.steamgriddb.steam-rom-manager uk.co.powdertoy.tpt com.heroicgameslauncher.hgl net.rpcs3.RPCS3 org.citra_emu.citra org.DolphinEmu.dolphin-emu org.ppsspp.PPSSPP net.pcsx2.PCSX2 com.mojang.Minecraft
 }
 if ! flatpakInstall; then
 	echo "Failed to install preferred flatpaks."
