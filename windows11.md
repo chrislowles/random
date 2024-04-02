@@ -109,7 +109,6 @@
 	"Valve.Steam",
 	"SublimeHQ.SublimeText.4",
 	"ThePowderToy.ThePowderToy",
-	"YuzuEmu.Yuzu.Mainline",
 	"Zoom.Zoom",
 	"SteamGridDB.RomManager",
 	"DupeGuru.DupeGuru",
@@ -118,16 +117,14 @@
 	"qBittorrent.qBittorrent",
 	"yt-dlp.yt-dlp",
 	"Cloudflare.Warp",
-	"ElectronicArts.EADesktop",
-	"Oracle.VirtualBox",
+	#"ElectronicArts.EADesktop",
+	#"Oracle.VirtualBox",
 	"filips.FirefoxPWA",
 	"TheDocumentFoundation.LibreOffice",
-	"GOG.Galaxy",
 	"mpv.net",
 	"Microsoft.PowerToys",
-	"EpicGames.EpicGamesLauncher",
 	"Cyotek.WebCopy",
-	"Modrinth.ModrinthApp",
+	#"Modrinth.ModrinthApp",
 	"Klocman.BulkCrapUninstaller"
 ) | ForEach-Object {
 	winget install $_
