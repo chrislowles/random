@@ -65,8 +65,7 @@
 	"*AdobePhotoshopExpress*",
 	"*HotspotShieldFreeVPN*"
 ) | ForEach-Object {
-	Get-AppxProvisionedPackage –online | where-object {$_.packagename –like "*PackageName*"} | Remove-AppxProvisionedPackage –online
-	Get-AppxPackage $_ | Remove-AppxPackage
+	Get-AppxProvisionedPackage –online | where-object {$_.packagename –like "*$_*"} | Remove-AppxProvisionedPackage –online
 }
 ```
 
