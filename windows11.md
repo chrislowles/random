@@ -74,15 +74,9 @@
 (
 	"7zip.7zip",
 	"GNU.Nano",
+	"Mozilla.Firefox",
+	"Spotify.Spotify",
 	"Git.Git",
-	"Microsoft.VCRedist.2013.x64",
-	"Microsoft.VCRedist.2010.x64",
-	"Microsoft.VCRedist.2015+.x86",
-	"Microsoft.VCRedist.2005.x86",
-	"Microsoft.VCRedist.2015+.x64",
-	"Microsoft.VCRedist.2013.x86",
-	"Microsoft.VCRedist.2010.x86",
-	"Microsoft.DotNet.DesktopRuntime.6",
 	"ImageMagick.ImageMagick",
 	"Python.Launcher",
 	"Oracle.JavaRuntimeEnvironment",
@@ -101,11 +95,9 @@
 	"HandBrake.HandBrake",
 	"Logitech.LogiBolt",
 	"MusicBrainz.Picard",
-	"Mozilla.Firefox",
 	"KDE.NeoChat",
 	"OBSProject.OBSStudio",
 	"PPSSPPTeam.PPSSPP",
-	"Spotify.Spotify",
 	"Valve.Steam",
 	"SublimeHQ.SublimeText.4",
 	"ThePowderToy.ThePowderToy",
@@ -118,7 +110,7 @@
 	"yt-dlp.yt-dlp",
 	"Cloudflare.Warp",
 	#"ElectronicArts.EADesktop",
-	#"Oracle.VirtualBox",
+	"Oracle.VirtualBox",
 	"filips.FirefoxPWA",
 	"TheDocumentFoundation.LibreOffice",
 	"mpv.net",
@@ -136,9 +128,9 @@
 (
 	"https://aka.ms/vs/17/release/vc_redist.x86.exe",
 	"https://aka.ms/XboxInstaller",
-	"https://openiv.com/WebIV/guest.php?get=1"
+	#"https://openiv.com/WebIV/guest.php?get=1"
 	#"https://runtime.fivem.net/client/FiveM.exe"
-	"https://sourceforge.net/projects/equalizerapo/files/1.3/EqualizerAPO64-1.3.exe/download"
+	#"https://sourceforge.net/projects/equalizerapo/files/1.3/EqualizerAPO64-1.3.exe/download"
 ) | ForEach-Object {
 	Invoke-WebRequest -UseBasicParsing -Uri $_ -OutFile "pkg.exe"
 	Start-Process pkg.exe
