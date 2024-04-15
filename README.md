@@ -1,14 +1,14 @@
 # random
 Scripts for certain operating systems I use, quick JS scripts.
 
+## LMDE.sh
+<sup>Details on LMDE.sh at https://github.com/chrishazfun/random/blob/master/LMDE.md</sup>
+
 ## Linux Scripts
 ```bash
 # if you can't immediately clone repo (from url)
 bash <(curl -s https://github.com/chrishazfun/random/raw/master/script-name.sh)
 ```
-
-## LMDE.sh
-<sup>Details on LMDE.sh at https://github.com/chrishazfun/random/blob/master/LMDE.md</sup>
 
 ```bash
 # if you have git (you should, really)
