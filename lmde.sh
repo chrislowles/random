@@ -43,7 +43,8 @@ fi
 echo "Installing preferred native pkgs."
 sleep 1
 nativeInstall() {
-	apt install sublime-text kdocker dupeguru
+	apt install kdocker
+	# dupeguru
 }
 if ! nativeInstall; then
 	echo "Failed to install preferred native pkgs."
@@ -55,8 +56,8 @@ sleep 1
 flatpakInstall() {
 	flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 	flatpak install com.valvesoftware.Steam com.steamgriddb.steam-rom-manager
+	flatpak install com.feaneron.Boatswain com.github.tchx84.Flatseal io.github.giantpinkrobots.flatsweep org.kde.kdenlive io.freetubeapp.FreeTube com.discordapp.Discord org.qbittorrent.qBittorrent io.mpv.Mpv org.atheme.audacious org.audacityteam.Audacity com.github.qarmin.czkawka org.gimp.GIMP io.github.shiftey.Desktop org.libreoffice.LibreOffice io.github.pwr_solaar.solaar org.nickvision.tagger org.upscayl.Upscayl com.spotify.Client io.github.peazip.PeaZip org.bleachbit.BleachBit fr.handbrake.ghb com.obsproject.Studio us.zoom.Zoom me.timschneeberger.jdsp4linux com.visualstudio.code
 	flatpak install io.itch.itch uk.co.powdertoy.tpt net.rpcs3.RPCS3 org.DolphinEmu.dolphin-emu org.ppsspp.PPSSPP net.pcsx2.PCSX2 com.mojang.Minecraft
-	flatpak install com.feaneron.Boatswain com.github.tchx84.Flatseal io.github.giantpinkrobots.flatsweep org.kde.kdenlive io.freetubeapp.FreeTube com.discordapp.Discord org.qbittorrent.qBittorrent io.mpv.Mpv org.atheme.audacious org.audacityteam.Audacity com.github.qarmin.czkawka org.gimp.GIMP io.github.shiftey.Desktop org.libreoffice.LibreOffice io.github.pwr_solaar.solaar org.nickvision.tagger org.upscayl.Upscayl com.spotify.Client io.github.peazip.PeaZip org.bleachbit.BleachBit fr.handbrake.ghb com.obsproject.Studio us.zoom.Zoom me.timschneeberger.jdsp4linux
 }
 if ! flatpakInstall; then
 	echo "Failed to install preferred flatpaks."
