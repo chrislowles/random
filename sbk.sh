@@ -23,6 +23,7 @@ rpm-ostree install \
 https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm \
 https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm -y
 
+# nvidia drivers
 installNvidiaAction() {
 	rpm-ostree install akmod-nvidia xorg-x11-drv-nvidia
 	rpm-ostree kargs --append=rd.driver.blacklist=nouveau --append=modprobe.blacklist=nouveau --append=nvidia-drm.modeset=1
@@ -33,12 +34,13 @@ installNvidia() {
 		exit 1
 	fi
 }
-read -p "install nvidia drivers? (N/y) " -n 1 -r
-echo
-if [[ $REPLY =~ ^[Yy]$ ]]
-then
-	installNvidia();
-fi
+echo "install nvidia drivers?"
+select ny in "nah" "yeah"; do
+    case $ny in
+        nah ) echo "ok no nvidia drivers";;
+        yeah ) installNvidia; break;;
+    esac
+done
 
 echo "adding flathub and preferred flatpaks"
 sleep 1
