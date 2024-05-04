@@ -1,19 +1,8 @@
 # random
-Scripts for certain operating systems I use, quick JS scripts.
+Odds and ends (Including scripts for certain operating systems I use, JS snippets)
 
-## LMDE.sh
-<sup>Details on LMDE.sh at https://github.com/chrishazfun/random/blob/master/LMDE.md</sup>
+### sbk.sh
+Details on `sbk.sh` at https://github.com/chrishazfun/random/blob/master/sbk.md
 
-## Linux Scripts
-```bash
-# if you can't immediately clone repo (from url)
-bash <(curl -s https://github.com/chrishazfun/random/raw/master/script-name.sh)
-```
-
-```bash
-# if you have git (you should, really)
-git clone https://github.com/chrishazfun/random
-bash random/script-name.sh
-```
-
-<sup>I also provide a how-to for my personal Windows setup [here](https://github.com/chrishazfun/random/blob/master/windows.md) (Sectioned, PowerShell 7.x, absolutely triple make sure 100% of Windows is updated)</sup>
+### Windows11.md
+I also provide a how-to for my personal Windows 11 setup [here](https://github.com/chrishazfun/random/blob/master/windows11.md) (Sectioned, PowerShell 7.x, absolutely triple make sure 100% of Windows is updated)
