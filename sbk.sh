@@ -34,13 +34,11 @@ installNvidia() {
 		exit 1
 	fi
 }
-echo "install nvidia drivers?"
-select ny in "nah" "yeah"; do
-    case $ny in
-        nah ) echo "ok no nvidia drivers";;
-        yeah ) installNvidia; break;;
-    esac
-done
+printf 'Is this a good question (y/N)? '
+read ny
+if [ "$ny" != "${ny#[Yy]}" ]; then
+    installNvidia
+fi
 
 echo "adding flathub and preferred flatpaks"
 sleep 1
