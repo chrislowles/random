@@ -107,7 +107,6 @@
 	"ItchIo.Itch",
 	"KDE.Kdenlive",
 	"qBittorrent.qBittorrent",
-	"yt-dlp.yt-dlp",
 	"Cloudflare.Warp",
 	#"ElectronicArts.EADesktop",
 	"Oracle.VirtualBox",
@@ -120,6 +119,15 @@
 	"Klocman.BulkCrapUninstaller"
 ) | ForEach-Object {
 	winget install $_
+}
+```
+
+## Scoop Pkgs (of which you can get [here](https://scoop.sh/))
+```powershell
+(
+	"main/yt-dlp"
+) | ForEach-Object {
+	scoop install $_
 }
 ```
 
