@@ -7,34 +7,31 @@ fi
 
 echo "before anything... updating and upgrading"
 sleep 1
-dnf update --refresh -y
-dnf upgrade --refresh -y
+rpm-ostree update --refresh -y
+rpm-ostree upgrade --refresh -y
 
-echo "installing dnf-plugins-core"
-sleep 1
-dnf install dnf-plugins-core -y
-
-echo "installing rpmfusion"
-sleep 1
-dnf install \
-https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm \
-https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
-
-echo "updating dnf based on rpmfusion install"
-sleep 1
-dnf update --refresh
-
-installNvidia() {
-	if ! dnf install akmod-nvidia; then
-		echo "failed to install nvidia drivers"
-		exit 1
-	fi
-}
-printf 'install nvidia drivers? (y/N) '
-read ny
-if [ "$ny" != "${ny#[Yy]}" ]; then
-    installNvidia
-fi
+#echo "installing rpmfusion and dnf-plugins-core"
+#sleep 1
+#rpm-ostree install -y \
+#dnf-plugins-core \
+#https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm \
+#https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+#
+#echo "updating dnf based on rpmfusion install"
+#sleep 1
+#rpm-ostree update --refresh -y
+#
+#installNvidia() {
+#	if ! dnf install akmod-nvidia -y; then
+#		echo "failed to install nvidia drivers"
+#		exit 1
+#	fi
+#}
+#printf 'install nvidia drivers? (y/N) '
+#read ny
+#if [ "$ny" != "${ny#[Yy]}" ]; then
+#    installNvidia
+#fi
 
 echo "adding flathub, distrobox/boxbuddy and preferred flatpaks"
 sleep 1

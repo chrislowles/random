@@ -1,8 +1,8 @@
 # random
 Odds and ends (Including scripts for certain operating systems I use, snippets of code, random markdown files for memory)
 
-### [fedora.sh](https://github.com/chrishazfun/random/blob/master/fedora.sh)
-Details on `fedora.sh` at https://github.com/chrishazfun/random/blob/master/fedora.md
+### [baz.sh](https://github.com/chrishazfun/random/blob/master/baz.sh)
+Details on `baz.sh` at https://github.com/chrishazfun/random/blob/master/baz.md
 
 ### [Windows11.md](https://github.com/chrishazfun/random/blob/master/windows11.md)
 I also provide a how-to for my personal Windows 11 setup [here](https://github.com/chrishazfun/random/blob/master/windows11.md) (Sectioned, PowerShell 7.x, absolutely triple make sure 100% of Windows is updated)
