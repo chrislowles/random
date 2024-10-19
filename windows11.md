@@ -72,60 +72,76 @@
 ## Winget Pkgs (of which you can get [here](https://aka.ms/getwinget))
 ```powershell
 (
-	"7zip.7zip",
-	"GNU.Nano",
-	"Mozilla.Firefox",
-	"Spotify.Spotify",
-	"Git.Git",
-	"ImageMagick.ImageMagick",
-	"Python.Launcher",
-	"Oracle.JavaRuntimeEnvironment",
-	"TechPowerUp.NVCleanstall",
-	"gerardog.gsudo",
-	"Python.Python.3.10",
 	"Upscayl.Upscayl",
 	"PrestonN.FreeTube",
-	"Audacious.MediaPlayer",
+	"7zip.7zip",
 	"Audacity.Audacity",
-	"BleachBit.BleachBit",
-	"Discord.Discord",
-	"DolphinEmulator.Dolphin",
-	"GIMP.GIMP",
-	"GitHub.GitHubDesktop",
-	"HandBrake.HandBrake",
+	"Git.Git",
+	"KDE.Krita",
 	"Logitech.LogiBolt",
-	"MusicBrainz.Picard",
-	"KDE.NeoChat",
-	"OBSProject.OBSStudio",
-	"PPSSPPTeam.PPSSPP",
-	"Valve.Steam",
-	"SublimeHQ.SublimeText.4",
-	"ThePowderToy.ThePowderToy",
+	"Mozilla.Firefox",
+	"Libretro.RetroArch",
+	"Streamlink.Streamlink",
+	"Nikse.SubtitleEdit",
+	"Apple.iTunes",
+	"WireGuard.WireGuard",
+	"PrivateInternetAccess.PrivateInternetAccess", 
 	"Zoom.Zoom",
+	"gerardog.gsudo",
+	"filips.FirefoxPWA",
+	"CloneHeroTeam.CloneHero",
+	"Oracle.VirtualBox",
+	"TheDocumentFoundation.LibreOffice",
+	"Cyotek.WebCopy",
+	"Klocman.BulkCrapUninstaller",
+	"HandBrake.HandBrake",
+	"MusicBrainz.Picard",
+	"OBSProject.OBSStudio",
+	"Valve.Steam",
+	"RamenSoftware.Windhawk",
+	"qBittorrent.qBittorrent",
+	"Jackett.Jackett",
+	"OpenWhisperSystems.Signal",
+	"Discord.Discord",
+	"GNU.Nano",
+	"GitHub.GitHubDesktop",
+	"Gyan.FFmpeg.Shared",
+	"rcmaehl.MSEdgeRedirect",
+	"Spotify.Spotify",
+	"ThePowderToy.ThePowderToy",
 	"SteamGridDB.RomManager",
 	"DupeGuru.DupeGuru",
-	"ItchIo.Itch",
 	"KDE.Kdenlive",
-	"qBittorrent.qBittorrent",
-	"Cloudflare.Warp",
-	#"ElectronicArts.EADesktop",
-	"Oracle.VirtualBox",
-	"filips.FirefoxPWA",
-	"TheDocumentFoundation.LibreOffice",
+	"yt-dlp.yt-dlp",
+	"VSCodium.VSCodium",
 	"mpv.net",
 	"Microsoft.PowerToys",
-	"Cyotek.WebCopy",
-	#"Modrinth.ModrinthApp",
-	"Klocman.BulkCrapUninstaller"
+	"File-New-Project.EarTrumpet"
 ) | ForEach-Object {
 	winget install $_
 }
 ```
 
+## Scoop Buckets
+```powershell
+scoop bucket add anderlli0053_DEV-tools https://github.com/anderlli0053/DEV-tools
+scoop bucket add extras
+scoop bucket add versions
+scoop bucket add games
+```
+
 ## Scoop Pkgs (of which you can get [here](https://scoop.sh/))
 ```powershell
 (
-	"main/yt-dlp"
+	"anderlli0053_DEV-tools/a7800",
+	"games/dolphin",
+	"games/duckstation",
+	"games/pcsx2-dev",
+	"games/ppsspp",
+	"games/redream",
+	"games/rpcs3",
+	"extras/ventoy",
+	"main/wget"
 ) | ForEach-Object {
 	scoop install $_
 }
@@ -135,10 +151,7 @@
 ```powershell
 (
 	"https://aka.ms/vs/17/release/vc_redist.x86.exe",
-	"https://aka.ms/XboxInstaller",
-	#"https://openiv.com/WebIV/guest.php?get=1"
-	#"https://runtime.fivem.net/client/FiveM.exe"
-	#"https://sourceforge.net/projects/equalizerapo/files/1.3/EqualizerAPO64-1.3.exe/download"
+	"https://aka.ms/XboxInstaller"
 ) | ForEach-Object {
 	Invoke-WebRequest -UseBasicParsing -Uri $_ -OutFile "pkg.exe"
 	Start-Process pkg.exe
@@ -150,13 +163,9 @@
 Invoke-WebRequest -UseBasicParsing -Uri "https://gist.githubusercontent.com/AllenEllis/884681dd08abb2470f55a74bbc12f008/raw/0c494563220283a607543af9d55a5309983fb18d/Remove%2520OneDrive%2520(PowerShell).ps1" | Invoke-Expression
 ```
 
-## Turning hibernation off
+## Some sudo cmds (restart Powershell)
 ```powershell
 sudo powercfg /hibernate off
-```
-
-## Disabling some optional features (since sudo should be here now)
-```powershell
 sudo dism /online /disable-feature /featurename:Internet-Explorer-Optional-amd64 /remove /norestart /warningaction
 sudo dism /online /disable-feature /featurename:WindowsMediaPlayer /remove /norestart /warningaction
 ```
