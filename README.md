@@ -1,5 +1,4 @@
 # random
-Odds and ends (Including scripts for certain operating systems I use, snippets of code, random markdown files for memory)
 
 ### [windows11.md](https://github.com/chrislowles/random/blob/master/windows11.md)
 Sectioned, PowerShell 7.x, absolutely triple make sure 100% of Windows is updated.
@@ -14,4 +13,4 @@ Two random JS functions I wrote ages ago to adapt json to url-friendly querystri
 JS function to load in various file types with callbacks (Probably broken)
 
 ### [blocktube-advanced.js](https://github.com/chrislowles/random/blob/master/blocktube-advanced.js)
-My attempt to block videos by regular expression matches in titles through [BlockTube](https://github.com/amitbl/blocktube), a content filter for YouTube
+My attempt to block videos by regular expression matches in titles through [BlockTube](https://github.com/amitbl/blocktube), a content filter for YouTube.
