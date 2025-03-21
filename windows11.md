@@ -51,7 +51,7 @@ Access Chris Titus' `winutil` with this command in PowerShell.
 ```powershell
 irm "https://christitus.com/win" | iex
 ```
-Download the config available at winutil.json here, import it, run 'Run Tweaks' in Tweaks and 'Install Features' in Config as its set and set the Windows Update channel to 'Security'.
+Download the config available at [winutil.json](https://github.com/chrislowles/random/blob/master/winutil.json) here, import it, run 'Run Tweaks' in Tweaks and 'Install Features' in Config as its set and set the Windows Update channel to 'Security'.
 
 # [Scoop](https://scoop.sh/)
 ## Buckets (Repositories)
