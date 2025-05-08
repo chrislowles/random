@@ -12,28 +12,39 @@ Just because we ran it through microwin doesn't mean we can't make it better, ru
 These ones in particular I'd like to just have installed regularly.
 ```powershell
 (
-	"7zip.7zip",
-	"Git.Git",
-	"Microsoft.WindowsTerminal",
-	"Xanashi.Icaros",
-	"Logitech.LogiBolt",
 	"Mozilla.Firefox",
 	"rcmaehl.MSEdgeRedirect",
-	"Oracle.VirtualBox",
+	"TechPowerUp.NVCleanstall",
 	"Klocman.BulkCrapUninstaller",
-	"Valve.Steam",
-	"RamenSoftware.Windhawk",
 	"qBittorrent.qBittorrent",
 	"Jackett.Jackett",
-	"GNU.Nano",
-	"Spotify.Spotify",
-	"ItchIo.Itch",
 	"Ytmdesktop.Ytmdesktop",
-	"yt-dlp.yt-dlp",
-	"Gyan.FFmpeg",
-	"Microsoft.VisualStudioCode",
+	"ItchIo.Itch",
+	"RamenSoftware.Windhawk",
 	"mpv.net",
-	"Microsoft.PowerToys"
+	"Microsoft.PowerToys",
+	"ThePowderToy.ThePowderToy",
+	"7zip.7zip",
+	"Git.Git",
+	"Xanashi.Icaros",
+	"Logitech.GHUB",
+	"Oracle.VirtualBox",
+	"Valve.Steam",
+	"SteamGridDB.RomManager",
+	"OBSProject.OBSStudio",
+	"Microsoft.VisualStudioCode",
+	"Spotify.Spotify",
+	"Discord.Discord",
+	"DupeGuru.DupeGuru",
+	"Audacity.Audacity",
+	"Lymphatus.Caesium",
+	"PrestonN.FreeTube",
+	"GitHub.GitHubDesktop",
+	"KDE.Kdenlive",
+	"KDE.Krita",
+	"Upscayl.Upscayl",
+	"YACReader.YACReader",
+	"TheDocumentFoundation.LibreOffice"
 ) | ForEach-Object {
 	winget install $_
 }
@@ -51,21 +62,18 @@ scoop bucket add games
 scoop bucket add anderlli0053_DEV-tools https://github.com/anderlli0053/DEV-tools
 scoop bucket add detain_scoop-emulators https://github.com/detain/scoop-emulators
 scoop bucket add hoilc_scoop-lemon https://github.com/hoilc/scoop-lemon
-scoop bucket add littleli_Scoop-AtariEmulators https://github.com/littleli/Scoop-AtariEmulators
 ```
 ## Packages
 Doesn't have auto update functionality so I just leave the updating to checking in with it in the terminal.
 ```powershell
 (
-	"extras/nvcleanstall",
 	"main/python",
 	"main/pipx",
+	"main/ffmpeg",
 	"versions/yt-dlp-master",
-	"extras/twitchdownloader",
 	"extras/ventoy",
-	"games/powdertoy",
-	"games/luanti",
-	"main/ffmpeg"
+	"extras/twitchdownloader",
+	"games/luanti"
 ) | ForEach-Object {
 	scoop install $_
 }
