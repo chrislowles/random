@@ -14,6 +14,7 @@ These ones in particular I'd like to just have installed regularly.
 (
 	"Mozilla.Firefox",
 	"rcmaehl.MSEdgeRedirect",
+	"Nickvision.Parabolic",
 	"TechPowerUp.NVCleanstall",
 	"Klocman.BulkCrapUninstaller",
 	"qBittorrent.qBittorrent",
@@ -42,6 +43,7 @@ These ones in particular I'd like to just have installed regularly.
 	"GitHub.GitHubDesktop",
 	"KDE.Kdenlive",
 	"KDE.Krita",
+	"Ventoy.Ventoy",
 	"Upscayl.Upscayl",
 	"YACReader.YACReader",
 	"TheDocumentFoundation.LibreOffice"
@@ -53,25 +55,14 @@ These ones in particular I'd like to just have installed regularly.
 # [Scoop](https://scoop.sh/)
 ## Buckets (Repositories)
 ```powershell
-scoop bucket add extras
-scoop bucket add versions
-scoop bucket add games
-scoop bucket add chrislowles_bucket https://github.com/chrislowles/bucket
-scoop bucket add versions
-scoop bucket add games
-scoop bucket add anderlli0053_DEV-tools https://github.com/anderlli0053/DEV-tools
-scoop bucket add detain_scoop-emulators https://github.com/detain/scoop-emulators
-scoop bucket add hoilc_scoop-lemon https://github.com/hoilc/scoop-lemon
+scoop bucket add extras;
+scoop bucket add games;
+scoop bucket add chrislowles_bucket https://github.com/chrislowles/bucket;
 ```
 ## Packages
 Doesn't have auto update functionality so I just leave the updating to checking in with it in the terminal.
 ```powershell
 (
-	"main/python",
-	"main/pipx",
-	"main/ffmpeg",
-	"versions/yt-dlp-master",
-	"extras/ventoy",
 	"extras/twitchdownloader",
 	"games/luanti"
 ) | ForEach-Object {
